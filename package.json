@@ -1,0 +1,28 @@
+{
+  "name": "tasky-frontend",
+  "version": "1.0.0",
+  "description": "Tasky frontend app",
+  "main": "src/index.js",
+  "author": "Darius Kihuha",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "parcel build src/index.html --no-source-maps",
+    "dev": "parcel src/index.html"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "bootstrap": "^4.5.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "parcel": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.5",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {}
+}
