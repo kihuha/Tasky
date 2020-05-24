@@ -103,7 +103,7 @@ const App = () => {
 
     return (
         <section className="col-sm-12 col-md-6 col-lg-4 mx-auto p-0">
-            <header className="header px-2">
+            <header className="header px-4">
                 <h1 className="header__brand">Tasky</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group header__input-group">
@@ -120,7 +120,7 @@ const App = () => {
                     </div>
                 </form>
             </header>
-            <div className="task__list px-2">
+            <div className="task__list px-4">
                 <div className="task__list-title">
                     <h2 className="m-0">Today</h2>
                     <small>Click Task to expand options</small>
