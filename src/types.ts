@@ -6,7 +6,7 @@ export interface ITask {
 }
 
 export interface IState {
-    tasks: ITask[]
+    tasks: ITask[] | []
 }
 
 

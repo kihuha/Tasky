@@ -2,84 +2,20 @@ import React, { Reducer, useReducer, useState, FormEvent, MouseEvent } from "rea
 import { render } from 'react-dom'
 
 // TYPES
-import { IState, IAction, ITask } from './types'
+import { IState, ITask } from './types'
 
+import reducer from './reducer'
 
 const App = () => {
-    const reducer = (state: IState, action: IAction) => {
-        switch (action.type) {
-            case 'ADD_TODO':
-                if (action.data.title.trim().length > 0) {
-                    setIdTrack(idTrack + 1)
-                    return Object.assign(
-                        {},
-                        {
-                            tasks: [
-                                ...state.tasks,
-                                {
-                                    id: state.tasks.length + 1,
-                                    title: action.data.title,
-                                    status: action.data.status,
-                                    created: action.data.created
-                                }
-                            ]
-                        }
-                    )
-                } else {
-                    return state
-                }
-            case 'MARK_AS_DONE_OR_UNDO':
-                const getSpecificTask = state.tasks.filter(
-                    (item) => item.id === action.data.id
-                )[0]
-
-                const otherTasks = state.tasks.filter(
-                    (item) => item.id !== action.data.id
-                )
-
-                const newTasks = [
-                    ...otherTasks,
-                    {
-                        id: getSpecificTask.id,
-                        title: getSpecificTask.title,
-                        status: !getSpecificTask.status,
-                        created: getSpecificTask.created
-                    }
-                ]
-
-
-
-                return Object.assign(
-                    {},
-                    {
-                        tasks: newTasks.sort((a, b) => a.id - b.id)
-                    }
-                )
-            case 'DELETE_TASK':
-                const filteredTasks = state.tasks.filter(
-                    (item) => item.id !== action.data.id
-                ).sort((a, b) => a.id - b.id)
-
-                return Object.assign(
-                    {},
-                    {
-                        tasks: [
-                            ...filteredTasks
-                        ]
-                    }
-                )
-            default:
-                return state
-        }
+   
+    const [input, setInput] = useState<string>('')
+    const initialTaskState:IState = {
+        tasks: []
     }
 
-    const [input, setInput] = useState<string>('')
-    const [idTrack, setIdTrack] = useState<number>(1)
     const [state, dispatch] = useReducer<Reducer<any, any>>(
         reducer,
-        {
-            tasks: []
-        }
+        initialTaskState
     )
 
     const handleOptions = (e: MouseEvent) => {
@@ -116,7 +52,7 @@ const App = () => {
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="What to do...!"
                         />
-                        <small>Press 'enter' to add</small>
+                        <small>Press &apos;enter&apos; to add</small>
                     </div>
                 </form>
             </header>
