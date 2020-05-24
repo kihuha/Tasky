@@ -1,16 +1,15 @@
-export interface ITask {
-    id: number
-    title: string
-    status: boolean
-    created: Date
+export interface TaskInterface {
+    id: number;
+    title: string;
+    status: boolean;
+    created: Date;
 }
 
-export interface IState {
-    tasks: ITask[] | []
+export interface StateInterface {
+    tasks: TaskInterface[] | [];
 }
 
-
-export interface IAction {
-    type: string
-    data: ITask
+export interface ActionInterface {
+    type: string;
+    data: TaskInterface;
 }

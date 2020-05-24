@@ -1,0 +1,6 @@
+.cache/
+dist
+node_modules/
+*.lock
+.prettierrc
+.eslintrc.json
